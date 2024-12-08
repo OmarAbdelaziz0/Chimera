@@ -11,8 +11,8 @@
 
         public async Task OpenMap()
         {
-            var location = new Location(47.645160, -122.1306032);
-            var options = new MapLaunchOptions { Name = "Microsoft Building 25", NavigationMode = NavigationMode.Driving };
+            var location = new Location(30.020831889819476, 31.494954569908185);
+            var options = new MapLaunchOptions { Name = "Point 90 Mall", NavigationMode = NavigationMode.Driving };
 
             try
             {
@@ -25,7 +25,7 @@
         }
         private async void OnOpenMapButtonClicked(object sender, EventArgs e)
         {
-            await OpenMap(); // Call the method to open maps
+            await OpenMap();
         }
     }
     }

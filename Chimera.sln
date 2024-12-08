@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiApp6", "MauiApp6\MauiApp6.csproj", "{2E6BD821-DBC5-4FD9-B29C-B5A4533423E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chimera", "Chimera\Chimera.csproj", "{76163D39-7346-4C98-96D6-4FE72DDE6DF5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,12 +11,12 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2E6BD821-DBC5-4FD9-B29C-B5A4533423E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2E6BD821-DBC5-4FD9-B29C-B5A4533423E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2E6BD821-DBC5-4FD9-B29C-B5A4533423E5}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{2E6BD821-DBC5-4FD9-B29C-B5A4533423E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2E6BD821-DBC5-4FD9-B29C-B5A4533423E5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2E6BD821-DBC5-4FD9-B29C-B5A4533423E5}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{76163D39-7346-4C98-96D6-4FE72DDE6DF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76163D39-7346-4C98-96D6-4FE72DDE6DF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76163D39-7346-4C98-96D6-4FE72DDE6DF5}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{76163D39-7346-4C98-96D6-4FE72DDE6DF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76163D39-7346-4C98-96D6-4FE72DDE6DF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76163D39-7346-4C98-96D6-4FE72DDE6DF5}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
