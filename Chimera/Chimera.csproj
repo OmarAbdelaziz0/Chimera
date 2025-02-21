@@ -57,10 +57,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="9.0.0-rc.1.24453.9" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="9.0.0-rc.1.24453.9" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0-rc.1.24431.7" />
+		<PackageReference Include="MongoDB.Bson" Version="3.2.0" />
+		<PackageReference Include="MongoDB.Bson.signed" Version="2.19.0" />
+		<PackageReference Include="MongoDB.Driver" Version="3.2.0" />
+		<PackageReference Include="MongoDB.Driver.Core" Version="2.30.0" />
 		<PackageReference Include="Onion.Maui.GoogleMaps" Version="6.0.0" />
+		<PackageReference Include="Realm" Version="20.1.0" />
 	</ItemGroup>
 
 </Project>

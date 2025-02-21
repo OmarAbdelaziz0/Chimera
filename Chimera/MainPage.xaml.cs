@@ -11,8 +11,8 @@
 
         public async Task OpenMap()
         {
-            var location = new Location(30.020831889819476, 31.494954569908185);
-            var options = new MapLaunchOptions { Name = "Point 90 Mall", NavigationMode = NavigationMode.Driving };
+            var location = new Location(29.97202768067485, 31.709378607949088);
+            var options = new MapLaunchOptions { Name = "The Knowledge Hub Universities, Coventry University & Nova University Lisbon Branches in Egypt", NavigationMode = NavigationMode.Driving };
 
             try
             {
