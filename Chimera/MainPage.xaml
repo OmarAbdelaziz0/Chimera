@@ -7,7 +7,7 @@
                VerticalOptions="Center"
                HorizontalOptions="Center" />
 
-        <Button Text="Open Map"
+        <Button Text="Press The Button To Open Google Maps"
                 Clicked="OnOpenMapButtonClicked"
                 VerticalOptions="Center"
                 HorizontalOptions="Center" />
