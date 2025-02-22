@@ -1,21 +1,19 @@
 ﻿using MongoDB.Driver;
-
-namespace Chimera.Services
+using MauiApp6;  
+public class MongoDBService
 {
-    public class MongoDBService
+    private readonly IMongoCollection<PersonModel> _collection;
+
+    public MongoDBService()
     {
-        private readonly IMongoDatabase _database;
+        string connectionString = "mongodb+srv://user1:eclair%40123@chimera.l1lfq.mongodb.net/?retryWrites=true&w=majority&appName=Chimera";
+        var client = new MongoClient(connectionString);
+        var db = client.GetDatabase("Chimera");
+        _collection = db.GetCollection<PersonModel>("Chimera");
+    }
 
-        public MongoDBService()
-        {
-            var connectionString = "mongodb+srv://user1:eclair%40123@chimera.l1lfq.mongodb.net/?retryWrites=true&w=majority&appName=Chimera";
-            var client = new MongoClient(connectionString);
-            _database = client.GetDatabase("Chimera"); // Ensure database name is correct
-        }
-
-        public IMongoCollection<T> GetCollection<T>(string collectionName)
-        {
-            return _database.GetCollection<T>(collectionName);
-        }
+    internal async Task InsertPersonAsync(PersonModel person)
+    {
+        await _collection.InsertOneAsync(person);
     }
 }
