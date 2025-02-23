@@ -1,7 +1,8 @@
 ﻿using MongoDB.Driver;
 using System;
 using System.Threading.Tasks;
-using MauiApp6.model;
+using MauiApp6.Models; // Ensure your PersonModel is in the correct namespace
+
 namespace MauiApp6
 {
     public class MongoDBService

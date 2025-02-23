@@ -1,12 +1,7 @@
-﻿using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson;
 
-namespace MauiApp6.model
+namespace MauiApp6.Models
 {
     public class PersonModel
     {
@@ -14,15 +9,11 @@ namespace MauiApp6.model
         [BsonRepresentation(BsonType.ObjectId)]
         public ObjectId Id { get; set; }
         public string Username { get; set; }
-        public string Password { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-
-        public string Gender { get; set; }
-
         public int Age { get; set; }
-
-
-
+        public string Email { get; set; }
+        public string Gender { get; set; }
+        public string Password { get; set; }
     }
 }
