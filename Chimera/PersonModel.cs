@@ -17,3 +17,4 @@ namespace MauiApp6.Models
         public string Password { get; set; }
     }
 }
+
