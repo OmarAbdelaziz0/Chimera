@@ -2,16 +2,51 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp6.MainPage">
-    <VerticalStackLayout>
-        <Label Text="Press the button to open Maps"
+    <VerticalStackLayout Padding="20" Spacing="15">
+        <!-- Toggle between Login and Registration -->
+        <Label x:Name="FormTitle" Text="Login"
+               FontSize="24" HorizontalOptions="Center"/>
+
+        <!-- Username or Email Input (visible in both modes) -->
+        <Entry x:Name="UsernameOrEmailEntry" Placeholder="Username or Email"/>
+
+        <!-- Password Input -->
+        <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True"/>
+
+        <!-- Additional fields for Registration -->
+        <Entry x:Name="EmailEntry" Placeholder="Email" IsVisible="False"/>
+        <Entry x:Name="UsernameEntry" Placeholder="Username" IsVisible="False"/>
+
+        <!-- Confirm Password Input (only visible in Registration mode) -->
+        <Entry x:Name="ConfirmPasswordEntry" Placeholder="Confirm Password" IsPassword="True" IsVisible="False"/>
+        <Entry x:Name="GenderEntry" Placeholder="Gender (Male/Female)" IsVisible="False"/>
+
+        <!-- First Name Input (only visible in Registration mode) -->
+        <Entry x:Name="FirstNameEntry" Placeholder="First Name" IsVisible="False"/>
+
+        <!-- Last Name Input (only visible in Registration mode) -->
+        <Entry x:Name="LastNameEntry" Placeholder="Last Name" IsVisible="False"/>
+
+        <!-- Age Input (only visible in Registration mode) -->
+        <Entry x:Name="AgeEntry" Placeholder="Age" Keyboard="Numeric" IsVisible="False"/>
+
+        <!-- Action Button (Login/Registration) -->
+        <Button x:Name="ActionButton" Text="Login"
+                Clicked="OnActionButtonClicked"/>
+
+        <!-- Toggle Button between Login and Register -->
+        <Button x:Name="ToggleFormButton" Text="Don't have an account? Register"
+                Clicked="OnToggleFormButtonClicked"/>
+
+        <!-- Google Maps Section -->
+        <Label Text="Google Maps"
+               FontSize="20"
                VerticalOptions="Center"
-               HorizontalOptions="Center" />
+               HorizontalOptions="Center"/>
 
         <Button Text="Open Map"
                 Clicked="OnOpenMapButtonClicked"
                 VerticalOptions="Center"
                 HorizontalOptions="Center" />
     </VerticalStackLayout>
-
-  
 </ContentPage>
