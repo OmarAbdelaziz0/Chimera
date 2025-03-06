@@ -9,7 +9,7 @@
                FontSize="24" HorizontalOptions="Center" TextColor="White"/>
 
         <!-- Username or Email Input (visible in both modes) -->
-        <Entry x:Name="UsernameOrEmailEntry" Placeholder="Username or Email" BackgroundColor="White" TextColor="Black"/>
+        <Entry x:Name="UsernameOrEmailEntry" Placeholder="Email" BackgroundColor="White" TextColor="Black"/>
 
         <!-- Password Input -->
         <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True" BackgroundColor="White" TextColor="Black"/>
@@ -40,8 +40,8 @@
                 Clicked="OnToggleFormButtonClicked"/>
 
         <!-- Google Maps Section -->
-        <Label Text="TKH"
-               FontSize="20"
+        <Label Text="TKH's Location"
+               FontSize="25"
                VerticalOptions="Center"
                HorizontalOptions="Center" TextColor="White"/>
 
