@@ -1,50 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiApp6.MainPage">
+             x:Class="MauiApp6.MainPage"
+             BackgroundColor="#1E1E2F">
     <VerticalStackLayout Padding="20" Spacing="15">
         <!-- Toggle between Login and Registration -->
         <Label x:Name="FormTitle" Text="Login"
-               FontSize="24" HorizontalOptions="Center"/>
+               FontSize="24" HorizontalOptions="Center" TextColor="White"/>
 
         <!-- Username or Email Input (visible in both modes) -->
-        <Entry x:Name="UsernameOrEmailEntry" Placeholder="Username or Email"/>
+        <Entry x:Name="UsernameOrEmailEntry" Placeholder="Username or Email" BackgroundColor="White" TextColor="Black"/>
 
         <!-- Password Input -->
-        <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True"/>
+        <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True" BackgroundColor="White" TextColor="Black"/>
 
         <!-- Additional fields for Registration -->
-        <Entry x:Name="EmailEntry" Placeholder="Email" IsVisible="False"/>
-        <Entry x:Name="UsernameEntry" Placeholder="Username" IsVisible="False"/>
+        <Entry x:Name="EmailEntry" Placeholder="Email" IsVisible="False" BackgroundColor="White" TextColor="Black"/>
+        <Entry x:Name="UsernameEntry" Placeholder="Username" IsVisible="False" BackgroundColor="White" TextColor="Black"/>
 
         <!-- Confirm Password Input (only visible in Registration mode) -->
-        <Entry x:Name="ConfirmPasswordEntry" Placeholder="Confirm Password" IsPassword="True" IsVisible="False"/>
-        <Entry x:Name="GenderEntry" Placeholder="Gender (Male/Female)" IsVisible="False"/>
+        <Entry x:Name="ConfirmPasswordEntry" Placeholder="Confirm Password" IsPassword="True" IsVisible="False" BackgroundColor="White" TextColor="Black"/>
+        <Entry x:Name="GenderEntry" Placeholder="Gender (Male/Female)" IsVisible="False" BackgroundColor="White" TextColor="Black"/>
 
         <!-- First Name Input (only visible in Registration mode) -->
-        <Entry x:Name="FirstNameEntry" Placeholder="First Name" IsVisible="False"/>
+        <Entry x:Name="FirstNameEntry" Placeholder="First Name" IsVisible="False" BackgroundColor="White" TextColor="Black"/>
 
         <!-- Last Name Input (only visible in Registration mode) -->
-        <Entry x:Name="LastNameEntry" Placeholder="Last Name" IsVisible="False"/>
+        <Entry x:Name="LastNameEntry" Placeholder="Last Name" IsVisible="False" BackgroundColor="White" TextColor="Black"/>
 
         <!-- Age Input (only visible in Registration mode) -->
-        <Entry x:Name="AgeEntry" Placeholder="Age" Keyboard="Numeric" IsVisible="False"/>
+        <Entry x:Name="AgeEntry" Placeholder="Age" Keyboard="Numeric" IsVisible="False" BackgroundColor="White" TextColor="Black"/>
 
         <!-- Action Button (Login/Registration) -->
-        <Button x:Name="ActionButton" Text="Login"
+        <Button x:Name="ActionButton" Text="Login" BackgroundColor="#F5A623" TextColor="White"
                 Clicked="OnActionButtonClicked"/>
 
         <!-- Toggle Button between Login and Register -->
-        <Button x:Name="ToggleFormButton" Text="Don't have an account? Register"
+        <Button x:Name="ToggleFormButton" Text="Don't have an account? Register" BackgroundColor="Transparent" TextColor="Gold"
                 Clicked="OnToggleFormButtonClicked"/>
 
         <!-- Google Maps Section -->
-        <Label Text="Google Maps"
+        <Label Text="TKH"
                FontSize="20"
                VerticalOptions="Center"
-               HorizontalOptions="Center"/>
+               HorizontalOptions="Center" TextColor="White"/>
 
-        <Button Text="Press The Button To Open Google Maps"
+        <Button Text="Press The Button To Open Google Maps" BackgroundColor="#F5A623" TextColor="White"
                 Clicked="OnOpenMapButtonClicked"
                 VerticalOptions="Center"
                 HorizontalOptions="Center" />
