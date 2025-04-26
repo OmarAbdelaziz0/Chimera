@@ -63,6 +63,12 @@
 
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+		<PackageReference Include="Google.Protobuf" Version="3.30.1" />
+		<PackageReference Include="Grpc.Net.Client" Version="2.70.0" />
+		<PackageReference Include="Grpc.Tools" Version="2.71.0">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="9.0.0-rc.1.24453.9" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="9.0.0-rc.1.24453.9" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0-rc.1.24431.7" />
@@ -70,8 +76,30 @@
 		<PackageReference Include="MongoDB.Bson.signed" Version="2.19.0" />
 		<PackageReference Include="MongoDB.Driver" Version="3.2.0" />
 		<PackageReference Include="MongoDB.Driver.Core" Version="2.30.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="Onion.Maui.GoogleMaps" Version="6.0.0" />
 		<PackageReference Include="Realm" Version="20.1.0" />
+		<PackageReference Include="runtime.native.System.Net.Http" Version="4.3.1" />
+		<PackageReference Include="System.Net.Http" Version="4.3.4" />
+		<PackageReference Include="System.Runtime" Version="4.3.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="MatchingPage.xaml.cs">
+	    <DependentUpon>MatchingPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="DashboardPage.xaml.cs">
+	    <DependentUpon>DashboardPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="MatchingPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="DashboardPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>

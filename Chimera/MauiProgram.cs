@@ -14,7 +14,7 @@ namespace MauiApp6
 #if ANDROID
                 .UseGoogleMaps()
 #elif IOS
-                .UseGoogleMaps("")
+                .UseGoogleMaps("") // Add your iOS API key here
 
 #endif
                 .ConfigureFonts(fonts =>

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Shell
-    x:Class="MauiApp6.AppShell"
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:MauiApp6"
-    Shell.FlyoutBehavior="Disabled"
-    Title="MauiApp6">
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:MauiApp6"
+       x:Class="MauiApp6.AppShell"
+       Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent
-        Title="Login"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+
+    <!-- Define Routes -->
+    <ShellContent Route="MainPage" ContentTemplate="{DataTemplate local:MainPage}" />
+    <ShellContent Route="DashboardPage" ContentTemplate="{DataTemplate local:DashboardPage}" />
+    <ShellContent Title="Matching" ContentTemplate="{DataTemplate local:MatchingPage}" Route="MatchingPage" />
+
 
 </Shell>

@@ -1,0 +1,19 @@
+﻿syntax = "proto3";
+option csharp_namespace = "Grpc Shared"
+pacakge RiderService;
+
+service RiderService {
+  rpc GetNearestDriver (RiderRequest) returns (DriverResponse);
+}
+
+message RiderRequest {
+  string riderId = 1;
+  double latitude = 2;
+  double longitude = 3;
+}
+
+message DriverResponse {
+  string driverId = 1;
+  double latitude = 2;
+  double longitude = 3;
+}

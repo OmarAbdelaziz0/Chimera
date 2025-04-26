@@ -4,6 +4,7 @@ using System;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using MauiApp6.Models;
+
 namespace MauiApp6
 {
     public partial class MainPage : ContentPage
@@ -21,12 +22,14 @@ namespace MauiApp6
         {
             var usernameOrEmail = UsernameOrEmailEntry.Text;
             var password = PasswordEntry.Text;
-            var username = UsernameEntry.Text; // Capturing the username input
-            var email = EmailEntry.Text; // Capturing the email input
+            var username = UsernameEntry.Text;
+            var email = EmailEntry.Text;
             var gender = GenderEntry.Text;
             var firstName = FirstNameEntry.Text;
             var lastName = LastNameEntry.Text;
             var ageText = AgeEntry.Text;
+            var phoneNumber = PhoneNumberEntry.Text; // Capturing Phone Number
+            var role = RolePicker.SelectedItem?.ToString(); // Capturing Role
             int age;
 
             if (isLoginMode)
@@ -41,13 +44,15 @@ namespace MauiApp6
                 bool isEmailLogin = IsValidEmail(usernameOrEmail);
                 bool isUsernameLogin = !isEmailLogin;
 
-                // Check credentials in the database (or local validation)
-                // Assuming a method _mongoDBService.ValidateUserAsync is available for login validation
+                // Validate credentials in the database
                 var loginSuccess = await _mongoDBService.ValidateUserAsync(usernameOrEmail, password, isEmailLogin, isUsernameLogin);
 
                 if (loginSuccess)
                 {
                     await DisplayAlert("Login", "Logged in successfully.", "OK");
+
+                    // ✅ Navigate to DashboardPage
+                    await Navigation.PushAsync(new DashboardPage(usernameOrEmail));
                 }
                 else
                 {
@@ -59,7 +64,8 @@ namespace MauiApp6
                 // Registration Mode: Separate Username and Email
                 if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password) ||
                     string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName) || string.IsNullOrWhiteSpace(ageText) ||
-                    string.IsNullOrWhiteSpace(gender) || string.IsNullOrWhiteSpace(ConfirmPasswordEntry.Text))
+                    string.IsNullOrWhiteSpace(gender) || string.IsNullOrWhiteSpace(phoneNumber) || string.IsNullOrWhiteSpace(role) ||
+                    string.IsNullOrWhiteSpace(ConfirmPasswordEntry.Text))
                 {
                     await DisplayAlert("Error", "All fields must be filled.", "OK");
                     return;
@@ -68,6 +74,12 @@ namespace MauiApp6
                 if (!int.TryParse(ageText, out age))
                 {
                     await DisplayAlert("Error", "Age must be a valid number.", "OK");
+                    return;
+                }
+
+                if (!IsValidPhoneNumber(phoneNumber))
+                {
+                    await DisplayAlert("Error", "Invalid phone number format.", "OK");
                     return;
                 }
 
@@ -85,10 +97,15 @@ namespace MauiApp6
                             Email = email,
                             Gender = gender,
                             Password = password,
+                            PhoneNumber = phoneNumber,
+                            Role = role
                         };
 
                         await _mongoDBService.InsertPersonAsync(person);
                         await DisplayAlert("Registration", "Account created successfully!", "OK");
+
+                        // ✅ Navigate to DashboardPage
+                        await Navigation.PushAsync(new DashboardPage(usernameOrEmail));
                     }
                     else
                     {
@@ -117,6 +134,8 @@ namespace MauiApp6
             FirstNameEntry.IsVisible = !isLoginMode;
             LastNameEntry.IsVisible = !isLoginMode;
             AgeEntry.IsVisible = !isLoginMode;
+            PhoneNumberEntry.IsVisible = !isLoginMode; // Toggle phone number field
+            RolePicker.IsVisible = !isLoginMode; // Toggle role picker
 
             this.Title = isLoginMode ? "Login" : "Registration";
         }
@@ -133,6 +152,12 @@ namespace MauiApp6
         private bool IsValidGender(string gender)
         {
             return gender.Equals("Male", StringComparison.OrdinalIgnoreCase) || gender.Equals("Female", StringComparison.OrdinalIgnoreCase);
+        }
+
+        private bool IsValidPhoneNumber(string phoneNumber)
+        {
+            var phoneRegex = new Regex(@"^\+?\d{10,15}$"); // Accepts phone numbers with optional '+' and 10-15 digits
+            return phoneRegex.IsMatch(phoneNumber);
         }
 
         public async Task OpenMap()

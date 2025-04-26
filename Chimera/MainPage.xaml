@@ -2,8 +2,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp6.MainPage"
-             BackgroundColor="#1E1E2F">
+             BackgroundColor="#8F87F1">
     <VerticalStackLayout Padding="20" Spacing="15">
+
         <!-- Toggle between Login and Registration -->
         <Label x:Name="FormTitle" Text="Login"
                FontSize="24" HorizontalOptions="Center" TextColor="White"/>
@@ -30,6 +31,19 @@
 
         <!-- Age Input (only visible in Registration mode) -->
         <Entry x:Name="AgeEntry" Placeholder="Age" Keyboard="Numeric" IsVisible="False" BackgroundColor="White" TextColor="Black"/>
+
+        <!-- Phone Number Input (only visible in Registration mode) -->
+        <Entry x:Name="PhoneNumberEntry" Placeholder="Phone Number" Keyboard="Telephone" IsVisible="False" BackgroundColor="White" TextColor="Black"/>
+
+        <!-- Role Selection (Driver/Rider) -->
+        <Picker x:Name="RolePicker" IsVisible="False" BackgroundColor="White" TextColor="Black">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Driver</x:String>
+                    <x:String>Rider</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
 
         <!-- Action Button (Login/Registration) -->
         <Button x:Name="ActionButton" Text="Login" BackgroundColor="#F5A623" TextColor="White"
