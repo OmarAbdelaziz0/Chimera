@@ -18,21 +18,11 @@
         <!-- Additional fields for Registration -->
         <Entry x:Name="EmailEntry" Placeholder="Email" IsVisible="False" BackgroundColor="White" TextColor="Black"/>
         <Entry x:Name="UsernameEntry" Placeholder="Username" IsVisible="False" BackgroundColor="White" TextColor="Black"/>
-
-        <!-- Confirm Password Input (only visible in Registration mode) -->
         <Entry x:Name="ConfirmPasswordEntry" Placeholder="Confirm Password" IsPassword="True" IsVisible="False" BackgroundColor="White" TextColor="Black"/>
         <Entry x:Name="GenderEntry" Placeholder="Gender (Male/Female)" IsVisible="False" BackgroundColor="White" TextColor="Black"/>
-
-        <!-- First Name Input (only visible in Registration mode) -->
         <Entry x:Name="FirstNameEntry" Placeholder="First Name" IsVisible="False" BackgroundColor="White" TextColor="Black"/>
-
-        <!-- Last Name Input (only visible in Registration mode) -->
         <Entry x:Name="LastNameEntry" Placeholder="Last Name" IsVisible="False" BackgroundColor="White" TextColor="Black"/>
-
-        <!-- Age Input (only visible in Registration mode) -->
         <Entry x:Name="AgeEntry" Placeholder="Age" Keyboard="Numeric" IsVisible="False" BackgroundColor="White" TextColor="Black"/>
-
-        <!-- Phone Number Input (only visible in Registration mode) -->
         <Entry x:Name="PhoneNumberEntry" Placeholder="Phone Number" Keyboard="Telephone" IsVisible="False" BackgroundColor="White" TextColor="Black"/>
 
         <!-- Role Selection (Driver/Rider) -->
@@ -61,6 +51,21 @@
 
         <Button Text="Press The Button To Open Google Maps" BackgroundColor="#F5A623" TextColor="White"
                 Clicked="OnOpenMapButtonClicked"
+                VerticalOptions="Center"
+                HorizontalOptions="Center" />
+
+        <!-- Hotline Buttons -->
+        <Button Text="Call Hotline (19940)"
+                BackgroundColor="#F5A623"
+                TextColor="White"
+                Clicked="OnCallHotlineButtonClicked"
+                VerticalOptions="Center"
+                HorizontalOptions="Center" />
+
+        <Button Text="Chat on WhatsApp (19940)"
+                BackgroundColor="#25D366"
+                TextColor="White"
+                Clicked="OnWhatsAppButtonClicked"
                 VerticalOptions="Center"
                 HorizontalOptions="Center" />
     </VerticalStackLayout>

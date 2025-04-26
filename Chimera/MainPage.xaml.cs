@@ -1,5 +1,7 @@
 ﻿using Microsoft.Maui.Controls;
 using Microsoft.Maui.Devices.Sensors;
+using Microsoft.Maui.ApplicationModel.Communication;
+using Microsoft.Maui.ApplicationModel;
 using System;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -11,6 +13,7 @@ namespace MauiApp6
     {
         private readonly MongoDBService _mongoDBService;
         private bool isLoginMode = true;
+        private const string HotlineNumber = "19940";
 
         public MainPage()
         {
@@ -28,13 +31,12 @@ namespace MauiApp6
             var firstName = FirstNameEntry.Text;
             var lastName = LastNameEntry.Text;
             var ageText = AgeEntry.Text;
-            var phoneNumber = PhoneNumberEntry.Text; // Capturing Phone Number
-            var role = RolePicker.SelectedItem?.ToString(); // Capturing Role
+            var phoneNumber = PhoneNumberEntry.Text;
+            var role = RolePicker.SelectedItem?.ToString();
             int age;
 
             if (isLoginMode)
             {
-                // Login Mode: Either Username or Email with Password
                 if (string.IsNullOrWhiteSpace(usernameOrEmail) || string.IsNullOrWhiteSpace(password))
                 {
                     await DisplayAlert("Error", "Username or Email and Password must be filled.", "OK");
@@ -44,14 +46,11 @@ namespace MauiApp6
                 bool isEmailLogin = IsValidEmail(usernameOrEmail);
                 bool isUsernameLogin = !isEmailLogin;
 
-                // Validate credentials in the database
                 var loginSuccess = await _mongoDBService.ValidateUserAsync(usernameOrEmail, password, isEmailLogin, isUsernameLogin);
 
                 if (loginSuccess)
                 {
                     await DisplayAlert("Login", "Logged in successfully.", "OK");
-
-                    // ✅ Navigate to DashboardPage
                     await Navigation.PushAsync(new DashboardPage(usernameOrEmail));
                 }
                 else
@@ -61,7 +60,6 @@ namespace MauiApp6
             }
             else
             {
-                // Registration Mode: Separate Username and Email
                 if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password) ||
                     string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName) || string.IsNullOrWhiteSpace(ageText) ||
                     string.IsNullOrWhiteSpace(gender) || string.IsNullOrWhiteSpace(phoneNumber) || string.IsNullOrWhiteSpace(role) ||
@@ -103,8 +101,6 @@ namespace MauiApp6
 
                         await _mongoDBService.InsertPersonAsync(person);
                         await DisplayAlert("Registration", "Account created successfully!", "OK");
-
-                        // ✅ Navigate to DashboardPage
                         await Navigation.PushAsync(new DashboardPage(usernameOrEmail));
                     }
                     else
@@ -126,7 +122,6 @@ namespace MauiApp6
             ActionButton.Text = isLoginMode ? "Login" : "Register";
             ToggleFormButton.Text = isLoginMode ? "Don't have an account? Register" : "Already have an account? Login";
 
-            // Toggle visibility of registration fields
             EmailEntry.IsVisible = !isLoginMode;
             UsernameEntry.IsVisible = !isLoginMode;
             ConfirmPasswordEntry.IsVisible = !isLoginMode;
@@ -134,8 +129,8 @@ namespace MauiApp6
             FirstNameEntry.IsVisible = !isLoginMode;
             LastNameEntry.IsVisible = !isLoginMode;
             AgeEntry.IsVisible = !isLoginMode;
-            PhoneNumberEntry.IsVisible = !isLoginMode; // Toggle phone number field
-            RolePicker.IsVisible = !isLoginMode; // Toggle role picker
+            PhoneNumberEntry.IsVisible = !isLoginMode;
+            RolePicker.IsVisible = !isLoginMode;
 
             this.Title = isLoginMode ? "Login" : "Registration";
         }
@@ -156,7 +151,7 @@ namespace MauiApp6
 
         private bool IsValidPhoneNumber(string phoneNumber)
         {
-            var phoneRegex = new Regex(@"^\+?\d{10,15}$"); // Accepts phone numbers with optional '+' and 10-15 digits
+            var phoneRegex = new Regex(@"^\+?\d{10,15}$");
             return phoneRegex.IsMatch(phoneNumber);
         }
 
@@ -178,6 +173,32 @@ namespace MauiApp6
         private async void OnOpenMapButtonClicked(object sender, EventArgs e)
         {
             await OpenMap();
+        }
+
+        private async void OnCallHotlineButtonClicked(object sender, EventArgs e)
+        {
+            try
+            {
+                PhoneDialer.Open(HotlineNumber);
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", $"Cannot make a call: {ex.Message}", "OK");
+            }
+        }
+
+        private async void OnWhatsAppButtonClicked(object sender, EventArgs e)
+        {
+            try
+            {
+                var phoneNumber = HotlineNumber;
+                var url = $"https://wa.me/{phoneNumber}";
+                await Launcher.Default.OpenAsync(new Uri(url));
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", $"Cannot open WhatsApp: {ex.Message}", "OK");
+            }
         }
     }
 }
