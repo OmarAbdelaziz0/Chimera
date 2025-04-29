@@ -62,7 +62,7 @@
                 VerticalOptions="Center"
                 HorizontalOptions="Center" />
 
-        <Button Text="Chat on WhatsApp (19940)"
+        <Button Text="Chat on WhatsApp (1020089696)"
                 BackgroundColor="#25D366"
                 TextColor="White"
                 Clicked="OnWhatsAppButtonClicked"

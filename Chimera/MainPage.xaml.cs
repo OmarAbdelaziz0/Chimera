@@ -14,6 +14,8 @@ namespace MauiApp6
         private readonly MongoDBService _mongoDBService;
         private bool isLoginMode = true;
         private const string HotlineNumber = "19940";
+        private const string WhatsAppNumber = "1020089696";
+
 
         public MainPage()
         {
@@ -191,7 +193,7 @@ namespace MauiApp6
         {
             try
             {
-                var phoneNumber = HotlineNumber;
+                var phoneNumber = "20"+WhatsAppNumber;
                 var url = $"https://wa.me/{phoneNumber}";
                 await Launcher.Default.OpenAsync(new Uri(url));
             }
