@@ -49,14 +49,14 @@
                VerticalOptions="Center"
                HorizontalOptions="Center" TextColor="White"/>
 
-        <Button Text="Press The Button To Open Google Maps" BackgroundColor="#F5A623" TextColor="White"
+        <Button Text="Press The Button To Open Google Maps" BackgroundColor="#000000" TextColor="White"
                 Clicked="OnOpenMapButtonClicked"
                 VerticalOptions="Center"
                 HorizontalOptions="Center" />
 
         <!-- Hotline Buttons -->
         <Button Text="Call Hotline (19940)"
-                BackgroundColor="#F5A623"
+                BackgroundColor="#E50046"
                 TextColor="White"
                 Clicked="OnCallHotlineButtonClicked"
                 VerticalOptions="Center"
